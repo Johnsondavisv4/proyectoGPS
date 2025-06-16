@@ -21,7 +21,7 @@ export class Usuario {
   @Column({ length: 100 })
   nombre: string;
 
-  @Column({ length: 100 })
+  @Column({ length: 100, unique: true })
   email: string;
 
   @Column({ type: 'char', length: 1, default: 'A' })
