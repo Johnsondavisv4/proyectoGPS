@@ -20,13 +20,11 @@ import { UsuarioRolController } from './controllers/usuario-rol.controller';
 import { AuthService } from './auth/auth.service';
 import { AuthController } from './auth/auth.controller';
 
-import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from './auth/jwt.strategy';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (cfg: ConfigService) => ({
@@ -43,15 +41,7 @@ import { JwtStrategy } from './auth/jwt.strategy';
       inject: [ConfigService],
     }),
     TypeOrmModule.forFeature([CentroSalud, Usuario, Rol, UsuarioRol]),
-
-    JwtModule.registerAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (cfg: ConfigService) => ({
-        secret: cfg.get<string>('JWT_SECRET'),
-        signOptions: { expiresIn: cfg.get<string>('JWT_EXPIRATION') },
-      }),
-    }),
+    AuthModule,
   ],
   controllers: [
     CentroSaludController,
@@ -66,7 +56,6 @@ import { JwtStrategy } from './auth/jwt.strategy';
     RolService,
     UsuarioRolService,
     AuthService,
-    JwtStrategy,
   ],
 })
 export class AppModule {}
