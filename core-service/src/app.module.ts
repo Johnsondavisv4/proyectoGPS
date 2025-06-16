@@ -17,9 +17,6 @@ import { UsuarioController } from './controllers/usuario.controller';
 import { RolController } from './controllers/rol.controller';
 import { UsuarioRolController } from './controllers/usuario-rol.controller';
 
-import { AuthService } from './auth/auth.service';
-import { AuthController } from './auth/auth.controller';
-
 import { AuthModule } from './auth/auth.module';
 
 @Module({
@@ -48,14 +45,12 @@ import { AuthModule } from './auth/auth.module';
     UsuarioController,
     RolController,
     UsuarioRolController,
-    AuthController,
   ],
   providers: [
     CentroSaludService,
     UsuarioService,
     RolService,
     UsuarioRolService,
-    AuthService,
   ],
 })
 export class AppModule {}
