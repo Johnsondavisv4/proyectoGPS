@@ -32,6 +32,8 @@ import { FactorRiesgoController } from './controllers/factor-riesgo.controller';
 import { FactorProtectorController } from './controllers/factor-protector.controller';
 import { FichaControlController } from './controllers/ficha-control.controller';
 import { HistorialResultadoController } from './controllers/historial-resultado.controller';
+import { EnumsController } from './controllers/enums.controller';
+import { EnumsService } from './services/enums.service';
 
 @Module({
   imports: [
@@ -80,6 +82,7 @@ import { HistorialResultadoController } from './controllers/historial-resultado.
     FactorProtectorController,
     FichaControlController,
     HistorialResultadoController,
+    EnumsController,
   ],
   providers: [
     PacienteService,
@@ -92,6 +95,7 @@ import { HistorialResultadoController } from './controllers/historial-resultado.
     FichaControlService,
     HistorialResultadoService,
     PlanIntervencionService,
+    EnumsService,
   ],
 })
 export class AppModule {}
