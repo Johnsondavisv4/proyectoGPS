@@ -3,6 +3,14 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AuthModule } from './auth/auth.module';
+import { CitaController } from './controllers/cita.controller';
+import { EstratificacionRiesgoController } from './controllers/estratificacion-riesgo.controller';
+import { CitaService } from './services/cita.service';
+import { EstratificacionRiesgoService } from './services/estratificacion-riesgo.service';
+import { Cita } from './entities/cita.entity';
+import { EstratificacionRiesgo } from './entities/estratificacion-riesgo.entity';
+import { EnumsService } from './services/enums.service';
+import { EnumsController } from './controllers/enums.controller';
 
 @Module({
   imports: [
@@ -22,10 +30,14 @@ import { AuthModule } from './auth/auth.module';
       }),
       inject: [ConfigService],
     }),
-    TypeOrmModule.forFeature([]), // listado de entidades
+    TypeOrmModule.forFeature([Cita, EstratificacionRiesgo]), // listado de entidades
     AuthModule,
   ],
-  controllers: [],
-  providers: [],
+  controllers: [
+    CitaController,
+    EstratificacionRiesgoController,
+    EnumsController,
+  ],
+  providers: [CitaService, EstratificacionRiesgoService, EnumsService],
 })
 export class AppModule {}
