@@ -8,8 +8,8 @@ import {
 import { CentroSalud } from './centro-salud.entity';
 
 export enum UsuarioEstado {
-  ACTIVO = 'ACTIVO',
-  INACTIVO = 'INACTIVO',
+  ACTIVO = 'Activo',
+  INACTIVO = 'Inactivo',
 }
 
 @Entity({ name: 'usuario' })
