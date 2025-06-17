@@ -36,6 +36,10 @@ import { EnumsController } from './controllers/enums.controller';
         schema: cfg.get('DB_SCHEMA'),
         autoLoadEntities: true,
         synchronize: true,
+        extra: {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          poolMode: cfg.get('DB_POOL_MODE'),
+        },
       }),
       inject: [ConfigService],
     }),
