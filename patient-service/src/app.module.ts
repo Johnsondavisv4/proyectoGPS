@@ -1,8 +1,17 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
 import { AuthModule } from './auth/auth.module';
+import { Paciente } from './entities/paciente.entity';
+import { ProgramaControl } from './entities/programa-control.entity';
+import { Familia } from './entities/familia.entity';
+import { TipoRelacion } from './entities/tipo-relacion.entity';
+import { MiembroFamiliar } from './entities/miembro-familiar.entity';
+import { PlanIntervencion } from './entities/plan-intervencion.entity';
+import { FactorRiesgo } from './entities/factor-riesgo.entity';
+import { FactorProtector } from './entities/factor-protector.entity';
+import { FichaControl } from './entities/ficha-control.entity';
+import { HistorialResultado } from './entities/historial-resultado.entity';
 
 @Module({
   imports: [
@@ -22,7 +31,18 @@ import { AuthModule } from './auth/auth.module';
       }),
       inject: [ConfigService],
     }),
-    TypeOrmModule.forFeature([]), // listado de entidades
+    TypeOrmModule.forFeature([
+      Paciente,
+      ProgramaControl,
+      Familia,
+      TipoRelacion,
+      MiembroFamiliar,
+      PlanIntervencion,
+      FactorRiesgo,
+      FactorProtector,
+      FichaControl,
+      HistorialResultado,
+    ]),
     AuthModule,
   ],
   controllers: [],

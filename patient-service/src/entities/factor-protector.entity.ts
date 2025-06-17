@@ -1,0 +1,21 @@
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Familia } from './familia.entity';
+
+@Entity('factor_protector')
+export class FactorProtector {
+  @PrimaryGeneratedColumn()
+  id_factor_protector: number;
+
+  @Column()
+  descripcion: string;
+
+  @ManyToOne(() => Familia)
+  @JoinColumn({ name: 'id_familia' })
+  id_familia: Familia;
+}

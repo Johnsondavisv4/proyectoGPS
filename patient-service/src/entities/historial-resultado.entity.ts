@@ -1,0 +1,45 @@
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { FichaControl } from './ficha-control.entity';
+
+@Entity('historial_resultado')
+export class HistorialResultado {
+  @PrimaryGeneratedColumn()
+  id_historial_resultado: number;
+
+  @Column({ type: 'date' })
+  fecha_registro: Date;
+
+  @Column({ nullable: true })
+  presion_sistolica: number;
+
+  @Column({ nullable: true })
+  presion_diastolica: number;
+
+  @Column({ nullable: true })
+  frecuencia_cardiaca: number;
+
+  @Column({ type: 'decimal', precision: 5, scale: 2, nullable: true })
+  glicemia: number;
+
+  @Column({ type: 'decimal', precision: 5, scale: 2, nullable: true })
+  peso: number;
+
+  @Column({ type: 'decimal', precision: 4, scale: 2, nullable: true })
+  talla: number;
+
+  @Column({ type: 'decimal', precision: 4, scale: 2, nullable: true })
+  imc: number;
+
+  @Column({ type: 'text', nullable: true })
+  observacion: string;
+
+  @ManyToOne(() => FichaControl)
+  @JoinColumn({ name: 'id_ficha_control' })
+  id_ficha_control: FichaControl;
+}
