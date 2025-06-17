@@ -15,25 +15,25 @@ export class HistorialResultado {
   @Column({ type: 'date' })
   fecha_registro: Date;
 
-  @Column({ nullable: true })
+  @Column({ type: 'int', nullable: true })
   presion_sistolica: number;
 
-  @Column({ nullable: true })
+  @Column({ type: 'int', nullable: true })
   presion_diastolica: number;
 
-  @Column({ nullable: true })
+  @Column({ type: 'int', nullable: true })
   frecuencia_cardiaca: number;
 
-  @Column({ type: 'decimal', precision: 5, scale: 2, nullable: true })
+  @Column({ type: 'numeric', precision: 5, scale: 2, nullable: true })
   glicemia: number;
 
-  @Column({ type: 'decimal', precision: 5, scale: 2, nullable: true })
+  @Column({ type: 'numeric', precision: 5, scale: 2, nullable: true })
   peso: number;
 
-  @Column({ type: 'decimal', precision: 4, scale: 2, nullable: true })
+  @Column({ type: 'numeric', precision: 4, scale: 2, nullable: true })
   talla: number;
 
-  @Column({ type: 'decimal', precision: 4, scale: 2, nullable: true })
+  @Column({ type: 'numeric', precision: 4, scale: 2, nullable: true })
   imc: number;
 
   @Column({ type: 'text', nullable: true })

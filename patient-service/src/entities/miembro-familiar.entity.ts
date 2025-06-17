@@ -14,7 +14,7 @@ export class MiembroFamiliar {
   @PrimaryGeneratedColumn()
   id_miembro_familiar: number;
 
-  @Column()
+  @Column({ length: 100 })
   nombre: string;
 
   @Column({ type: 'date', nullable: true })

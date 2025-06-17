@@ -5,19 +5,19 @@ export class Paciente {
   @PrimaryGeneratedColumn()
   id_paciente: number;
 
-  @Column()
+  @Column({ length: 100 })
   direccion: string;
 
-  @Column()
+  @Column({ length: 12 })
   rut: string;
 
-  @Column()
+  @Column({ length: 100 })
   nombre: string;
 
-  @Column()
+  @Column({ length: 50 })
   apellido_paterno: string;
 
-  @Column()
+  @Column({ length: 50 })
   apellido_materno: string;
 
   @Column({ type: 'date' })
@@ -26,6 +26,6 @@ export class Paciente {
   @Column({ length: 1 })
   genero: string;
 
-  @Column()
+  @Column({ length: 15 })
   telefono: string;
 }

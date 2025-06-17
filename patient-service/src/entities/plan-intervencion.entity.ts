@@ -12,10 +12,10 @@ export class PlanIntervencion {
   @PrimaryGeneratedColumn()
   id_plan_intervencion: number;
 
-  @Column()
+  @Column({ length: 100 })
   nombre: string;
 
-  @Column({ nullable: true })
+  @Column({ length: 255, nullable: true })
   descripcion: string;
 
   @Column({ type: 'date', nullable: true })

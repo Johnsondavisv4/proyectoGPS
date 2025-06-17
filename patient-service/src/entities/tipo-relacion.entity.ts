@@ -5,6 +5,6 @@ export class TipoRelacion {
   @PrimaryGeneratedColumn()
   id_tipo_relacion: number;
 
-  @Column()
+  @Column({ length: 255 })
   descripcion: string;
 }

@@ -12,6 +12,26 @@ import { FactorRiesgo } from './entities/factor-riesgo.entity';
 import { FactorProtector } from './entities/factor-protector.entity';
 import { FichaControl } from './entities/ficha-control.entity';
 import { HistorialResultado } from './entities/historial-resultado.entity';
+import { PacienteService } from './services/paciente.service';
+import { ProgramaControlService } from './services/programa-control.service';
+import { FamiliaService } from './services/familia.service';
+import { TipoRelacionService } from './services/tipo-relacion.service';
+import { MiembroFamiliarService } from './services/miembro-familiar.service';
+import { FactorRiesgoService } from './services/factor-riesgo.service';
+import { FactorProtectorService } from './services/factor-protector.service';
+import { FichaControlService } from './services/ficha-control.service';
+import { HistorialResultadoService } from './services/historial-resultado.service';
+import { PlanIntervencionService } from './services/plan-intervencion.service';
+import { PacienteController } from './controllers/paciente.controller';
+import { ProgramaControlController } from './controllers/programa-control.controller';
+import { FamiliaController } from './controllers/familia.controller';
+import { TipoRelacionController } from './controllers/tipo-relacion.controller';
+import { MiembroFamiliarController } from './controllers/miembro-familiar.controller';
+import { PlanIntervencionController } from './controllers/plan-intervencion.controller';
+import { FactorRiesgoController } from './controllers/factor-riesgo.controller';
+import { FactorProtectorController } from './controllers/factor-protector.controller';
+import { FichaControlController } from './controllers/ficha-control.controller';
+import { HistorialResultadoController } from './controllers/historial-resultado.controller';
 
 @Module({
   imports: [
@@ -45,7 +65,29 @@ import { HistorialResultado } from './entities/historial-resultado.entity';
     ]),
     AuthModule,
   ],
-  controllers: [],
-  providers: [],
+  controllers: [
+    PacienteController,
+    ProgramaControlController,
+    FamiliaController,
+    TipoRelacionController,
+    MiembroFamiliarController,
+    PlanIntervencionController,
+    FactorRiesgoController,
+    FactorProtectorController,
+    FichaControlController,
+    HistorialResultadoController,
+  ],
+  providers: [
+    PacienteService,
+    ProgramaControlService,
+    FamiliaService,
+    TipoRelacionService,
+    MiembroFamiliarService,
+    FactorRiesgoService,
+    FactorProtectorService,
+    FichaControlService,
+    HistorialResultadoService,
+    PlanIntervencionService,
+  ],
 })
 export class AppModule {}

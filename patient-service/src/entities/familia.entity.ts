@@ -5,7 +5,7 @@ export class Familia {
   @PrimaryGeneratedColumn()
   id_familia: number;
 
-  @Column()
+  @Column({ length: 100 })
   nombre: string;
 
   @Column({ type: 'date' })

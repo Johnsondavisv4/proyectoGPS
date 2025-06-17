@@ -12,7 +12,7 @@ export class FactorRiesgo {
   @PrimaryGeneratedColumn()
   id_factor_riesgo: number;
 
-  @Column()
+  @Column({ length: 255 })
   descripcion: string;
 
   @ManyToOne(() => Familia)
