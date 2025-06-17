@@ -1,9 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum PacienteGenero {
-  MASCULINO = 'MASCULINO',
-  FEMENINO = 'FEMENINO',
-  OTRO = 'OTRO',
+  MASCULINO = 'Masculino',
+  FEMENINO = 'Femenino',
+  OTRO = 'Otro',
 }
 
 @Entity('paciente')
@@ -32,7 +32,7 @@ export class Paciente {
   @Column({
     type: 'enum',
     enum: PacienteGenero,
-    name: 'estado',
+    name: 'genero',
     nullable: false,
   })
   genero: PacienteGenero;
