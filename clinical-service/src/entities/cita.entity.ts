@@ -1,9 +1,12 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum CitaEstado {
-  PENDIENTE = 'PENDIENTE',
-  CONFIRMADA = 'CONFIRMADA',
-  CANCELADA = 'CANCELADA',
+  PENDIENTE = 'Pendiente',
+  CONFIRMADA = 'Confirmada',
+  CANCELADA = 'Cancelada',
+  RECHAZADA = 'Rechazada',
+  FINALIZADA = 'Finalizada',
+  EN_ESPERA = 'En espera',
 }
 
 @Entity({ name: 'cita' })
