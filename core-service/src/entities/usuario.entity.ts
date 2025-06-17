@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import { CentroSalud } from './centro-salud.entity';
 
-export enum usuario_estado {
+export enum UsuarioEstado {
   ACTIVO = 'ACTIVO',
   INACTIVO = 'INACTIVO',
 }
@@ -31,11 +31,11 @@ export class Usuario {
 
   @Column({
     type: 'enum',
-    enum: usuario_estado,
-    default: usuario_estado.ACTIVO,
+    enum: UsuarioEstado,
+    default: UsuarioEstado.ACTIVO,
     name: 'estado',
   })
-  estado: usuario_estado;
+  estado: UsuarioEstado;
 
   @Column()
   id_centro_salud: number;

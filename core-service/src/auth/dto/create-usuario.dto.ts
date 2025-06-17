@@ -6,7 +6,7 @@ import {
   IsString,
   MinLength,
 } from 'class-validator';
-import { usuario_estado } from '../../entities/usuario.entity';
+import { UsuarioEstado } from '../../entities/usuario.entity';
 
 export class CreateUsuarioDto {
   @IsString()
@@ -26,7 +26,7 @@ export class CreateUsuarioDto {
 
   @IsOptional()
   @IsString()
-  estado?: usuario_estado;
+  estado?: UsuarioEstado;
 
   @IsInt()
   id_centro_salud: number;

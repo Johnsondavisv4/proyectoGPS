@@ -18,6 +18,8 @@ import { RolController } from './controllers/rol.controller';
 import { UsuarioRolController } from './controllers/usuario-rol.controller';
 
 import { AuthModule } from './auth/auth.module';
+import { EnumsService } from './services/enums.service';
+import { EnumsController } from './controllers/enums.controller';
 
 @Module({
   imports: [
@@ -45,12 +47,14 @@ import { AuthModule } from './auth/auth.module';
     UsuarioController,
     RolController,
     UsuarioRolController,
+    EnumsController,
   ],
   providers: [
     CentroSaludService,
     UsuarioService,
     RolService,
     UsuarioRolService,
+    EnumsService,
   ],
 })
 export class AppModule {}
