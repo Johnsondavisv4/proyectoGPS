@@ -1,6 +1,15 @@
-import { Body, Controller, Delete, Get, Param, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
 import { UsuarioService } from '../services/usuario.service';
 import { Usuario } from '../entities/usuario.entity';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 
 @Controller('usuarios')
 export class UsuarioController {
@@ -17,6 +26,7 @@ export class UsuarioController {
   }
 
   @Get('user/:username')
+  @UseGuards(JwtAuthGuard)
   getByUser(@Param('username') username: string): Promise<Usuario> {
     return this.service.findByUser(username);
   }
