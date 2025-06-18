@@ -7,11 +7,9 @@ import {
   ParseIntPipe,
   Post,
   Put,
-  UseGuards,
 } from '@nestjs/common';
 import { PacienteService } from '../services/paciente.service';
 import { Paciente } from '../entities/paciente.entity';
-import { JwtAuthGuard } from '@proyecto-gps/auth';
 
 @Controller('paciente')
 export class PacienteController {
@@ -23,7 +21,6 @@ export class PacienteController {
   }
 
   @Get()
-  @UseGuards(JwtAuthGuard)
   findAll() {
     return this.pacienteService.findAll();
   }

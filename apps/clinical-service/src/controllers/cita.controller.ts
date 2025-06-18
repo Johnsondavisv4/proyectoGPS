@@ -7,11 +7,9 @@ import {
   ParseIntPipe,
   Patch,
   Post,
-  UseGuards,
 } from '@nestjs/common';
 import { CitaService } from '../services/cita.service';
 import { Cita } from '../entities/cita.entity';
-import { JwtAuthGuard } from '@proyecto-gps/auth';
 
 @Controller('cita')
 export class CitaController {
@@ -23,7 +21,6 @@ export class CitaController {
   }
 
   @Get()
-  @UseGuards(JwtAuthGuard)
   findAll(): Promise<Cita[]> {
     return this.citaService.findAll();
   }
