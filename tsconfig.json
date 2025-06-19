@@ -18,17 +18,35 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@proyecto-gps/auth": [
-        "libs/auth/src"
-      ],
-      "@proyecto-gps/auth/*": [
-        "libs/auth/src/*"
-      ],
       "@app/auth": [
         "libs/auth/src"
       ],
       "@app/auth/*": [
         "libs/auth/src/*"
+      ],
+      "@proyecto-gps/api-gateway": [
+        "apps/api-gateway/src"
+      ],
+      "@proyecto-gps/clinical-service/*": [
+        "apps/clinical-service/src/*"
+      ],
+      "@proyecto-gps/core-service/*": [
+        "apps/core-service/src/*"
+      ],
+      "@proyecto-gps/nutrition-service/*": [
+        "apps/nutrition-service/src/*"
+      ],
+      "@proyecto-gps/odonto-service/*": [
+        "apps/odonto-service/src/*"
+      ],
+      "@proyecto-gps/patient-service/*": [
+        "apps/patient-service/src/*"
+      ],
+      "@proyecto-gps/pharmacy-service/*": [
+        "apps/pharmacy-service/src/*"
+      ],
+      "@proyecto-gps/vaccination-service/*": [
+        "apps/vaccination-service/src/*"
       ]
     }
   }

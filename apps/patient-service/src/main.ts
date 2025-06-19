@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { PatientModule } from './patient.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(PatientModule);
 
   const port = parseInt(process.env.PORT_PATIENT || '3000', 10);
 

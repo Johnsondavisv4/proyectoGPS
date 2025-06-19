@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthModule } from '@proyecto-gps/auth';
+import { AuthModule } from '@app/auth';
 import { Paciente } from './entities/paciente.entity';
 import { ProgramaControl } from './entities/programa-control.entity';
 import { Familia } from './entities/familia.entity';
@@ -101,4 +101,4 @@ import { EnumsService } from './services/enums.service';
     EnumsService,
   ],
 })
-export class AppModule {}
+export class PatientModule {}

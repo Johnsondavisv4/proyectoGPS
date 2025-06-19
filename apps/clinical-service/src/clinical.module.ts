@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AuthModule } from '@proyecto-gps/auth';
+import { AuthModule } from '@app/auth';
 import { CitaController } from './controllers/cita.controller';
 import { EstratificacionRiesgoController } from './controllers/estratificacion-riesgo.controller';
 import { CitaService } from './services/cita.service';
@@ -47,4 +47,4 @@ import { EnumsController } from './controllers/enums.controller';
   ],
   providers: [CitaService, EstratificacionRiesgoService, EnumsService],
 })
-export class AppModule {}
+export class ClinicalModule {}
