@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "install": "cd backend && npm install && cd ../frontend && npm install",
-    "start": "node start.js"
+    "start": "node start.js",
+    "postinstall": "cd backend && cp .env.example .env && cd ../frontend && cp .env.local.example .env.local"
   }
 }
