@@ -5,6 +5,6 @@
   "scripts": {
     "install": "cd backend && npm install && cd ../frontend && npm install",
     "start": "node start.js",
-    "postinstall": "cd backend && cp .env.example .env && cd ../frontend && cp .env.local.example .env.local"
+    "postinstall": "node -e \"const fs=require('fs');fs.copyFileSync('backend/.env.example','backend/.env');fs.copyFileSync('frontend/.env.local.example','frontend/.env.local');console.log('✅ .env files created');\""
   }
 }
