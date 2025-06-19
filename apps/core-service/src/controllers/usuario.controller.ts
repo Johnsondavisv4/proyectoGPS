@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { UsuarioService } from '../services/usuario.service';
 import { Usuario } from '../entities/usuario.entity';
-import { JwtAuthGuard } from '@proyecto-gps/auth';
+import { JwtAuthGuard } from '@app/auth';
 
 @Controller('usuarios')
 export class UsuarioController {

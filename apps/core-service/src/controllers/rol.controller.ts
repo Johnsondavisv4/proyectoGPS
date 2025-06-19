@@ -1,7 +1,7 @@
 import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 import { RolService } from '../services/rol.service';
 import { Rol } from '../entities/rol.entity';
-import { JwtAuthGuard } from '@proyecto-gps/auth';
+import { JwtAuthGuard } from '@app/auth';
 
 @Controller('roles')
 export class RolController {

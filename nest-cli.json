@@ -10,6 +10,15 @@
   "monorepo": true,
   "root": "apps/core-service",
   "projects": {
+    "api-gateway": {
+      "type": "application",
+      "root": "apps/api-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
+      }
+    },
     "auth": {
       "type": "library",
       "root": "libs/auth",
@@ -37,6 +46,24 @@
         "tsConfigPath": "apps/core-service/tsconfig.app.json"
       }
     },
+    "nutrition-service": {
+      "type": "application",
+      "root": "apps/nutrition-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/nutrition-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/nutrition-service/tsconfig.app.json"
+      }
+    },
+    "odonto-service": {
+      "type": "application",
+      "root": "apps/odonto-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/odonto-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/odonto-service/tsconfig.app.json"
+      }
+    },
     "patient-service": {
       "type": "application",
       "root": "apps/patient-service",
@@ -44,6 +71,24 @@
       "sourceRoot": "apps/patient-service/src",
       "compilerOptions": {
         "tsConfigPath": "apps/patient-service/tsconfig.app.json"
+      }
+    },
+    "pharmacy-service": {
+      "type": "application",
+      "root": "apps/pharmacy-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/pharmacy-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/pharmacy-service/tsconfig.app.json"
+      }
+    },
+    "vaccination-service": {
+      "type": "application",
+      "root": "apps/vaccination-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/vaccination-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/vaccination-service/tsconfig.app.json"
       }
     }
   }
