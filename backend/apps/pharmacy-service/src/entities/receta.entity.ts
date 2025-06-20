@@ -1,1 +1,1 @@
-export class RecetaEntity {}
+export class Receta {}

@@ -1,1 +1,1 @@
-export class AlertaInasistenciaEntity {}
+export class AlertaInasistencia {}

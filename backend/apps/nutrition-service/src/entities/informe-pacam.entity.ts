@@ -1,1 +1,1 @@
-export class InformePacamEntity {}
+export class InformePacam { }

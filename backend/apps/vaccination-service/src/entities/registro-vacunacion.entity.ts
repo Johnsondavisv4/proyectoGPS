@@ -1,1 +1,1 @@
-export class RegistroVacunacionEntity {}
+export class RegistroVacunacion {}

@@ -1,1 +1,1 @@
-export class RadiografiaEntity {}
+export class Radiografia {}

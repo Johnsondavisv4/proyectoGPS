@@ -1,1 +1,1 @@
-export class ControlDesembolsoEntity {}
+export class ControlDesembolso { }

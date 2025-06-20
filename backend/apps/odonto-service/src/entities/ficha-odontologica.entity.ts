@@ -1,1 +1,1 @@
-export class FichaOdontologicaEntity {}
+export class FichaOdontologica {}

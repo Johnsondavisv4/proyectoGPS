@@ -1,1 +1,1 @@
-export class CalendarioVacunaEntity {}
+export class CalendarioVacuna {}

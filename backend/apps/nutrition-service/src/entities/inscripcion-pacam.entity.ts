@@ -1,1 +1,1 @@
-export class InscripcionPacamEntity {}
+export class InscripcionPacam { }

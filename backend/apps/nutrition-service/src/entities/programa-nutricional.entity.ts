@@ -1,1 +1,1 @@
-export class ProgramaNutricionalEntity {}
+export class ProgramaNutricional { }

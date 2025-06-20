@@ -1,1 +1,1 @@
-export class OdontogramaEntity {}
+export class Odontograma {}

@@ -1,1 +1,1 @@
-export class VacunaEntity {}
+export class Vacuna {}

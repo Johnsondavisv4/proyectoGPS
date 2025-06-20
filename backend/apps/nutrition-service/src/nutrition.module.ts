@@ -10,10 +10,10 @@ import { ProgramaNutricionalController } from './controllers/programa-nutriciona
 import { InscripcionPacamController } from './controllers/inscripcion-pacam.controller';
 import { InformePacamController } from './controllers/informe-pacam.controller';
 import { ControlDesembolsoController } from './controllers/control-desembolso.controller';
-import { ProgramaNutricional } from './entities/programa-nutricional';
-import { InscripcionPacam } from './entities/inscripcion-pacam';
-import { InformePacam } from './entities/informe-pacam';
-import { ControlDesembolso } from './entities/control-desembolso';
+import { ProgramaNutricional } from './entities/programa-nutricional.entity';
+import { InscripcionPacam } from './entities/inscripcion-pacam.entity';
+import { InformePacam } from './entities/informe-pacam.entity';
+import { ControlDesembolso } from './entities/control-desembolso.entity';
 
 @Module({
   imports: [
@@ -61,4 +61,4 @@ import { ControlDesembolso } from './entities/control-desembolso';
     ControlDesembolsoService,
   ],
 })
-export class NutritionModule {}
+export class NutritionModule { }
