@@ -1,8 +1,17 @@
 import { NestFactory } from '@nestjs/core';
-import { OdontoModule } from './odonto.module';
+import { OdontoModule } from '@proyecto-gps/odonto-service/odonto.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(OdontoModule);
-  await app.listen(process.env.port ?? 3000);
+
+  const port = parseInt(process.env.PORT_ODONTO || '3000', 10);
+
+  app.enableCors({
+    origin: 'http://localhost:3000',
+  });
+
+  await app.listen(port);
+  console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
 }
+
 bootstrap();
