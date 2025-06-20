@@ -1,8 +1,19 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
 import { AuthModule } from '@app/auth';
+import { ProgramaNutricionalService } from './services/programa-nutricional.service';
+import { InscripcionPacamService } from './services/inscripcion-pacam.service';
+import { InformePacamService } from './services/informe-pacam.service';
+import { ControlDesembolsoService } from './services/control-desembolso.service';
+import { ProgramaNutricionalController } from './controllers/programa-nutricional.controller';
+import { InscripcionPacamController } from './controllers/inscripcion-pacam.controller';
+import { InformePacamController } from './controllers/informe-pacam.controller';
+import { ControlDesembolsoController } from './controllers/control-desembolso.controller';
+import { ProgramaNutricional } from './entities/programa-nutricional';
+import { InscripcionPacam } from './entities/inscripcion-pacam';
+import { InformePacam } from './entities/informe-pacam';
+import { ControlDesembolso } from './entities/control-desembolso';
 
 @Module({
   imports: [
@@ -29,10 +40,25 @@ import { AuthModule } from '@app/auth';
       }),
       inject: [ConfigService],
     }),
-    TypeOrmModule.forFeature([]), // listado de entidades
+    TypeOrmModule.forFeature([
+      ProgramaNutricional,
+      InscripcionPacam,
+      InformePacam,
+      ControlDesembolso,
+    ]),
     AuthModule,
   ],
-  controllers: [],
-  providers: [],
+  controllers: [
+    ProgramaNutricionalController,
+    InscripcionPacamController,
+    InformePacamController,
+    ControlDesembolsoController,
+  ],
+  providers: [
+    ProgramaNutricionalService,
+    InscripcionPacamService,
+    InformePacamService,
+    ControlDesembolsoService,
+  ],
 })
 export class NutritionModule {}
