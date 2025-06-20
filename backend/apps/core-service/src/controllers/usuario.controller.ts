@@ -34,7 +34,7 @@ export class UsuarioController {
   @Get('email/:email')
   @UseGuards(JwtAuthGuard)
   getByEmail(@Param('email') email: string): Promise<Usuario> {
-    return this.service.findByUser(email);
+    return this.service.findByEmail(email);
   }
 
   @Put(':id')
