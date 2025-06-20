@@ -6,11 +6,12 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { Usuario } from '../entities/usuario.entity';
 import { UsuarioService } from '../services/usuario.service';
+import { XorUsernameEmailConstraint } from './validators/xor-validation.constraint';
 
 @Module({
   imports: [ConfigModule, SharedAuth, TypeOrmModule.forFeature([Usuario])],
   controllers: [AuthController],
-  providers: [AuthService, UsuarioService],
+  providers: [AuthService, UsuarioService, XorUsernameEmailConstraint],
   exports: [],
 })
 export class AuthModule {}

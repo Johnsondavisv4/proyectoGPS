@@ -6,6 +6,7 @@ import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { Usuario } from '../entities/usuario.entity';
 import { Repository } from 'typeorm';
+import { LoginDto } from '@proyecto-gps/core-service/auth/dto/login.dto';
 
 @Injectable()
 export class AuthService {
@@ -16,8 +17,8 @@ export class AuthService {
     private readonly repo: Repository<Usuario>,
   ) {}
 
-  async login(username: string, pass: string) {
-    const user = await this.validateUser(username, pass);
+  async login(dto: LoginDto) {
+    const user = await this.validateUser(dto);
     const payload = { sub: user.id_usuario, username: user.username };
     return { access_token: this.jwtService.sign(payload) };
   }
@@ -37,10 +38,13 @@ export class AuthService {
     return this.repo.save(user);
   }
 
-  private async validateUser(username: string, pass: string) {
-    const user = await this.users.findByUser(username);
+  private async validateUser(dto: LoginDto) {
+    const identifier = dto.username ?? dto.email!;
+    const user = dto.username
+      ? await this.users.findByUser(dto.username)
+      : await this.users.findByEmail(identifier);
     if (!user) throw new UnauthorizedException('Usuario no encontrado');
-    const ok = await bcrypt.compare(pass, user.password_hash);
+    const ok = await bcrypt.compare(dto.password, user.password_hash);
     if (!ok) throw new UnauthorizedException('Contraseña incorrecta');
     return user;
   }
