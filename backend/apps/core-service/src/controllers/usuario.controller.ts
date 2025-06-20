@@ -31,6 +31,12 @@ export class UsuarioController {
     return this.service.findByUser(username);
   }
 
+  @Get('email/:email')
+  @UseGuards(JwtAuthGuard)
+  getByEmail(@Param('email') email: string): Promise<Usuario> {
+    return this.service.findByUser(email);
+  }
+
   @Put(':id')
   update(@Param('id') id: number, @Body() dto: Partial<Usuario>) {
     return this.service.update(+id, dto);

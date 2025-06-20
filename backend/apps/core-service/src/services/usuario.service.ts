@@ -26,6 +26,12 @@ export class UsuarioService {
     return u;
   }
 
+  async findByEmail(email: string): Promise<Usuario> {
+    const u = await this.repo.findOneBy({ email: email });
+    if (!u) throw new NotFoundException(`Correo ${email} no encontrado`);
+    return u;
+  }
+
   async update(id: number, dto: Partial<Usuario>) {
     await this.findOne(id);
     return this.repo.update(id, dto);
