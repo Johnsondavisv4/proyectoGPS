@@ -1,8 +1,21 @@
-import { IsString, MinLength } from 'class-validator';
+import {
+  IsEmail,
+  IsOptional,
+  IsString,
+  MinLength,
+  Validate,
+} from 'class-validator';
+import { XorUsernameEmailConstraint } from '../validators/xor-validation.constraint';
 
 export class LoginDto {
+  @IsOptional()
   @IsString()
-  username: string;
+  username?: string;
+
+  @IsOptional()
+  @Validate(XorUsernameEmailConstraint)
+  @IsEmail()
+  email?: string;
 
   @IsString()
   @MinLength(6)
