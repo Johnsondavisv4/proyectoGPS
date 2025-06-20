@@ -3,6 +3,15 @@ import { PharmacyModule } from './pharmacy.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(PharmacyModule);
-  await app.listen(process.env.port ?? 3000);
+
+  const port = parseInt(process.env.PORT_PHARMACY || '3000', 10);
+
+  app.enableCors({
+    origin: 'http://localhost:3000',
+  });
+
+  await app.listen(port);
+  console.log(`🚀 Servidor corriendo en http://localhost:${port}`);
 }
+
 bootstrap();
