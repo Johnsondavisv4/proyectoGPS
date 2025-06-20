@@ -8,7 +8,7 @@ export class EstratificacionRiesgoService {
   constructor(
     @InjectRepository(EstratificacionRiesgo)
     private readonly repo: Repository<EstratificacionRiesgo>,
-  ) {}
+  ) { }
 
   async create(
     data: Partial<EstratificacionRiesgo>,
@@ -43,5 +43,9 @@ export class EstratificacionRiesgoService {
     if (result.affected === 0) {
       throw new NotFoundException(`Estratificación con id ${id} no encontrada`);
     }
+  }
+
+  async count(): Promise<number> {
+    return this.repo.count();
   }
 }

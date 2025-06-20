@@ -8,7 +8,7 @@ export class PacienteService {
   constructor(
     @InjectRepository(Paciente)
     private pacienteRepository: Repository<Paciente>,
-  ) {}
+  ) { }
 
   async create(paciente: Paciente): Promise<Paciente> {
     return await this.pacienteRepository.save(paciente);
@@ -37,5 +37,9 @@ export class PacienteService {
   async remove(id: number): Promise<void> {
     const paciente = await this.findOne(id);
     await this.pacienteRepository.remove(paciente);
+  }
+
+  async count(): Promise<number> {
+    return this.pacienteRepository.count();
   }
 }

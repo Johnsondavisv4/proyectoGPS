@@ -25,6 +25,11 @@ export class FichaControlController {
     return this.fichaControlService.findAll();
   }
 
+  @Get('count')
+  count() {
+    return this.fichaControlService.count();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.fichaControlService.findOne(id);

@@ -19,6 +19,11 @@ export class FichaOdontologicaController {
     return this.service.findAll();
   }
 
+  @Get('count')
+  count() {
+    return this.service.count();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string): Promise<FichaOdontologica> {
     return this.service.findOne(+id);

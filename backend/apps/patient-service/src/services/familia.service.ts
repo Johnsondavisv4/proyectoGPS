@@ -8,7 +8,7 @@ export class FamiliaService {
   constructor(
     @InjectRepository(Familia)
     private familiaRepository: Repository<Familia>,
-  ) {}
+  ) { }
 
   async create(familia: Familia): Promise<Familia> {
     return await this.familiaRepository.save(familia);
@@ -37,5 +37,9 @@ export class FamiliaService {
   async remove(id: number): Promise<void> {
     const familia = await this.findOne(id);
     await this.familiaRepository.remove(familia);
+  }
+
+  async count(): Promise<number> {
+    return this.familiaRepository.count();
   }
 }

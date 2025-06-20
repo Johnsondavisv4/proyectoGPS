@@ -19,6 +19,11 @@ export class VacunaController {
     return this.service.findAll();
   }
 
+  @Get('count')
+  count() {
+    return this.service.count();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string): Promise<Vacuna> {
     return this.service.findOne(+id);

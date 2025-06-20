@@ -25,6 +25,11 @@ export class CitaController {
     return this.citaService.findAll();
   }
 
+  @Get('count')
+  count() {
+    return this.citaService.count();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number): Promise<Cita> {
     return this.citaService.findOne(id);

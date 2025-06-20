@@ -27,6 +27,11 @@ export class EstratificacionRiesgoController {
     return this.svc.findAll();
   }
 
+  @Get('count')
+  count() {
+    return this.svc.count();
+  }
+
   @Get(':id')
   findOne(
     @Param('id', ParseIntPipe) id: number,

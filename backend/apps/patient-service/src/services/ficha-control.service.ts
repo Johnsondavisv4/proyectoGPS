@@ -40,4 +40,8 @@ export class FichaControlService {
     const ficha = await this.findOne(id);
     await this.fichaControlRepository.remove(ficha);
   }
+
+  async count(): Promise<number> {
+    return this.fichaControlRepository.count();
+  }
 }

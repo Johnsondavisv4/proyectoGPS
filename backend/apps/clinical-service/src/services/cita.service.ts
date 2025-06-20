@@ -8,7 +8,7 @@ export class CitaService {
   constructor(
     @InjectRepository(Cita)
     private readonly citaRepo: Repository<Cita>,
-  ) {}
+  ) { }
 
   async create(data: Partial<Cita>): Promise<Cita> {
     const cita = this.citaRepo.create(data);
@@ -38,5 +38,9 @@ export class CitaService {
     if (result.affected === 0) {
       throw new NotFoundException(`Cita con id ${id} no encontrada`);
     }
+  }
+
+  async count(): Promise<number> {
+    return this.citaRepo.count();
   }
 }

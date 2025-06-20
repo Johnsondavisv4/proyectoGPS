@@ -19,6 +19,11 @@ export class RecetaController {
     return this.service.findAll();
   }
 
+  @Get('count')
+  count() {
+    return this.service.count();
+  }
+
   @Get(':id')
   findOne(@Param('id') id: string): Promise<Receta> {
     return this.service.findOne(+id);

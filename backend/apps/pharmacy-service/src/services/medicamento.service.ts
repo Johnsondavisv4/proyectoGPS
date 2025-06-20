@@ -8,7 +8,7 @@ export class MedicamentoService {
   constructor(
     @InjectRepository(Medicamento)
     private repo: Repository<Medicamento>,
-  ) {}
+  ) { }
 
   create(data: Partial<Medicamento>): Promise<Medicamento> {
     const ent = this.repo.create(data);
@@ -34,5 +34,9 @@ export class MedicamentoService {
     const res = await this.repo.delete(id);
     if (res.affected === 0)
       throw new NotFoundException(`Medicamento ${id} no encontrado`);
+  }
+
+  async count(): Promise<number> {
+    return this.repo.count();
   }
 }

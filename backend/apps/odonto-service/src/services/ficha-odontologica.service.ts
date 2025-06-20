@@ -8,7 +8,7 @@ export class FichaOdontologicaService {
   constructor(
     @InjectRepository(FichaOdontologica)
     private readonly repo: Repository<FichaOdontologica>,
-  ) {}
+  ) { }
 
   create(data: Partial<FichaOdontologica>): Promise<FichaOdontologica> {
     const entity = this.repo.create(data);
@@ -40,5 +40,9 @@ export class FichaOdontologicaService {
     const res = await this.repo.delete(id);
     if (res.affected === 0)
       throw new NotFoundException(`FichaOdontologica ${id} no encontrada`);
+  }
+
+  async count(): Promise<number> {
+    return this.repo.count();
   }
 }

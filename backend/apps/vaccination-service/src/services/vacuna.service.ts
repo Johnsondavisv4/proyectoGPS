@@ -35,4 +35,8 @@ export class VacunaService {
     if (res.affected === 0)
       throw new NotFoundException(`Vacuna ${id} no encontrada`);
   }
+
+  async count(): Promise<number> {
+    return this.repo.count();
+  }
 }

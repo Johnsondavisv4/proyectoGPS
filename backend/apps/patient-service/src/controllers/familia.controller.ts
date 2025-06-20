@@ -25,6 +25,11 @@ export class FamiliaController {
     return this.familiaService.findAll();
   }
 
+  @Get('count')
+  count() {
+    return this.familiaService.count();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.familiaService.findOne(id);

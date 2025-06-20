@@ -25,6 +25,11 @@ export class PacienteController {
     return this.pacienteService.findAll();
   }
 
+  @Get('count')
+  count() {
+    return this.pacienteService.count();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.pacienteService.findOne(id);
