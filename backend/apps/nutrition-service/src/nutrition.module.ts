@@ -61,4 +61,4 @@ import { ControlDesembolso } from './entities/control-desembolso.entity';
     ControlDesembolsoService,
   ],
 })
-export class NutritionModule { }
+export class NutritionModule {}
