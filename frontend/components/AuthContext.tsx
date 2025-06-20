@@ -19,6 +19,7 @@ interface RegisterData {
 }
 
 interface UserInfo {
+    id: number;
     username: string;
     nombre: string;
     email: string;
@@ -116,6 +117,7 @@ export function AuthProvider({children}: { children: ReactNode }) {
             const userData = await userRes.json();
 
             const userInfo: UserInfo = {
+                id: userData.id_usuario,
                 username: userData.username,
                 nombre: userData.nombre,
                 email: userData.email
