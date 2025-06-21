@@ -21,7 +21,7 @@
     "start:vaccination-service": "nest start vaccination-service --watch",
     "start:gateway": "nest start api-gateway --watch",
     "start:all": "concurrently \"npm run start:core-service\" \"npm run start:clinical-service\" \"npm run start:nutrition-service\" \"npm run start:odonto-service\" \"npm run start:patient-service\" \"npm run start:pharmacy-service\" \"npm run start:vaccination-service\" \"npm run start:gateway\"",
-    "build:all": "nest build core-service && \nest build clinical-service && \nest build nutrition-service && \nest build odonto-service && \nest build patient-service && \nest build pharmacy-service && \nest build vaccination-service && \nest build api-gateway"
+    "build:all": "nest build core-service && \nest build clinical-service && \nest build nutrition-service && \nest build odonto-service && \nest build patient-service && \nest build pharmacy-service && \nest build vaccination-service && \nest build api-gateway",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
