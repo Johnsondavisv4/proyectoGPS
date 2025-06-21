@@ -14,10 +14,7 @@ const jwtFromRequest: JwtFromRequestFunction =
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(configService: ConfigService) {
-    const secret = configService.get<string>('JWT_SECRET');
-    if (!secret) {
-      throw new Error('JWT_SECRET no está definido en .env');
-    }
+    const secret = 'RegistroClinicoElectronico'
 
     super({
       jwtFromRequest,
