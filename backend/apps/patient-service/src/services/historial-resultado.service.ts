@@ -8,7 +8,8 @@ export class HistorialResultadoService {
   constructor(
     @InjectRepository(HistorialResultado)
     private historialResultadoRepository: Repository<HistorialResultado>,
-  ) {}
+  ) {
+  }
 
   async create(
     historialResultado: HistorialResultado,

@@ -1,11 +1,4 @@
-import {
-  IsEmail,
-  IsInt,
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-  MinLength,
-} from 'class-validator';
+import { IsEmail, IsInt, IsNotEmpty, IsOptional, IsString, MinLength } from 'class-validator';
 import { UsuarioEstado } from '../../entities/usuario.entity';
 
 export class CreateUsuarioDto {

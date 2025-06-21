@@ -64,4 +64,5 @@ import { EnumsController } from './controllers/enums.controller';
     EnumsService,
   ],
 })
-export class CoreModule {}
+export class CoreModule {
+}

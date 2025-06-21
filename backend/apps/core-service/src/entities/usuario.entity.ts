@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { CentroSalud } from './centro-salud.entity';
 
 export enum UsuarioEstado {
@@ -37,10 +31,10 @@ export class Usuario {
   })
   estado: UsuarioEstado;
 
-  @Column()
-  id_centro_salud: number;
-
-  @ManyToOne(() => CentroSalud, { onDelete: 'SET NULL' })
+  @ManyToOne(() => CentroSalud)
   @JoinColumn({ name: 'id_centro_salud' })
-  centro_salud: CentroSalud;
+  centroSalud: CentroSalud;
+
+  @Column({ nullable: false })
+  id_centro_salud: number;
 }

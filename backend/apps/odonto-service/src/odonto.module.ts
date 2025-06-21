@@ -61,4 +61,5 @@ import { Radiografia } from './entities/radiografia.entity';
     RadiografiaService,
   ],
 })
-export class OdontoModule {}
+export class OdontoModule {
+}

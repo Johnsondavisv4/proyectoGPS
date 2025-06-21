@@ -34,7 +34,10 @@ export class RegistroVacunacion {
     onUpdate: 'CASCADE',
   })
   @JoinColumn({ name: 'id_vacuna' })
-  id_vacuna: Vacuna;
+  vacuna: Vacuna;
+
+  @Column({ nullable: false })
+  id_vacuna: number;
 
   @ManyToOne(() => CalendarioVacuna, {
     nullable: true,
@@ -42,5 +45,8 @@ export class RegistroVacunacion {
     onUpdate: 'CASCADE',
   })
   @JoinColumn({ name: 'id_calendario_vacuna' })
-  id_calendario_vacuna: CalendarioVacuna | null;
+  calendario_vacuna: CalendarioVacuna | null;
+
+  @Column({ nullable: false })
+  id_calendario_vacuna: number | null;
 }

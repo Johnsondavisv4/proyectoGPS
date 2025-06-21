@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { FichaControl } from './ficha-control.entity';
 
 @Entity('historial_resultado')
@@ -41,5 +35,8 @@ export class HistorialResultado {
 
   @ManyToOne(() => FichaControl)
   @JoinColumn({ name: 'id_ficha_control' })
-  id_ficha_control: FichaControl;
+  ficha_control: FichaControl;
+
+  @Column({ nullable: false })
+  id_ficha_control: number;
 }

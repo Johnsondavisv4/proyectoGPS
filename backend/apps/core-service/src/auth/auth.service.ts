@@ -15,7 +15,8 @@ export class AuthService {
     private readonly users: UsuarioService,
     @InjectRepository(Usuario)
     private readonly repo: Repository<Usuario>,
-  ) {}
+  ) {
+  }
 
   async login(dto: LoginDto) {
     const user = await this.validateUser(dto);

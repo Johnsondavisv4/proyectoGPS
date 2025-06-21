@@ -47,4 +47,5 @@ import { EnumsController } from './controllers/enums.controller';
   ],
   providers: [CitaService, EstratificacionRiesgoService, EnumsService],
 })
-export class ClinicalModule {}
+export class ClinicalModule {
+}

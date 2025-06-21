@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Familia } from './familia.entity';
 import { TipoRelacion } from './tipo-relacion.entity';
 import { Paciente } from './paciente.entity';
@@ -25,13 +19,22 @@ export class MiembroFamiliar {
 
   @ManyToOne(() => Familia)
   @JoinColumn({ name: 'id_familia' })
-  id_familia: Familia;
+  familia: Familia;
+
+  @Column({ nullable: false })
+  id_familia: number;
 
   @ManyToOne(() => TipoRelacion)
   @JoinColumn({ name: 'id_tipo_relacion' })
-  id_tipo_relacion: TipoRelacion;
+  tipo_relacion: TipoRelacion;
+
+  @Column({ nullable: false })
+  id_tipo_relacion: number;
 
   @ManyToOne(() => Paciente)
   @JoinColumn({ name: 'id_paciente' })
-  id_paciente: Paciente;
+  paciente: Paciente;
+
+  @Column({ nullable: false })
+  id_paciente: number;
 }

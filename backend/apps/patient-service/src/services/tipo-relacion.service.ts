@@ -8,7 +8,8 @@ export class TipoRelacionService {
   constructor(
     @InjectRepository(TipoRelacion)
     private tipoRelacionRepository: Repository<TipoRelacion>,
-  ) {}
+  ) {
+  }
 
   async create(tipoRelacion: TipoRelacion): Promise<TipoRelacion> {
     return await this.tipoRelacionRepository.save(tipoRelacion);

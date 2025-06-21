@@ -24,5 +24,8 @@ export class AlertaInasistencia {
     onUpdate: 'CASCADE',
   })
   @JoinColumn({ name: 'id_registro_vacunacion' })
-  id_registro_vacunacion: RegistroVacunacion;
+  registro_vacunacion: RegistroVacunacion;
+
+  @Column({ nullable: false })
+  id_registro_vacunacion: number;
 }

@@ -21,11 +21,10 @@ export class CalendarioVacuna {
   @Column({ name: 'etapa', type: 'varchar', length: 50, nullable: true })
   etapa: string | null;
 
-  @ManyToOne(() => Vacuna, {
-    nullable: false,
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-  })
+  @ManyToOne(() => Vacuna)
   @JoinColumn({ name: 'id_vacuna' })
-  id_vacuna: Vacuna;
+  vacuna: Vacuna;
+
+  @Column({ nullable: false })
+  id_vacuna: number;
 }

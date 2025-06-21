@@ -5,7 +5,8 @@ import { JwtAuthGuard } from '@app/auth';
 
 @Controller('roles')
 export class RolController {
-  constructor(private readonly service: RolService) {}
+  constructor(private readonly service: RolService) {
+  }
 
   @Get()
   @UseGuards(JwtAuthGuard)

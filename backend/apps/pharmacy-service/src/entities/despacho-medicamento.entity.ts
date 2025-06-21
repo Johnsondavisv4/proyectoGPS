@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { RecetaMedicamento } from './receta-medicamento.entity';
 
 @Entity('despacho_medicamento')
@@ -26,11 +20,10 @@ export class DespachoMedicamento {
   @Column({ name: 'id_farmacia', type: 'int', nullable: true })
   id_farmacia: number | null;
 
-  @ManyToOne(() => RecetaMedicamento, {
-    nullable: false,
-    onDelete: 'RESTRICT',
-    onUpdate: 'CASCADE',
-  })
+  @ManyToOne(() => RecetaMedicamento)
   @JoinColumn({ name: 'id_receta_med' })
-  id_receta_med: RecetaMedicamento;
+  recetaMedicamento: RecetaMedicamento;
+
+  @Column({ nullable: false })
+  id_receta_med: number;
 }

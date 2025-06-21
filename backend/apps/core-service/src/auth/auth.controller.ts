@@ -1,10 +1,4 @@
-import {
-  Body,
-  Controller,
-  Post,
-  UsePipes,
-  ValidationPipe,
-} from '@nestjs/common';
+import { Body, Controller, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { LoginDto } from './dto/login.dto';
@@ -12,7 +6,8 @@ import { Usuario } from '../entities/usuario.entity';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly auth: AuthService) {}
+  constructor(private readonly auth: AuthService) {
+  }
 
   @Post('login')
   @UsePipes(new ValidationPipe({ whitelist: true }))

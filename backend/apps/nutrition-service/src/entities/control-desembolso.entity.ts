@@ -30,5 +30,8 @@ export class ControlDesembolso {
     onUpdate: 'CASCADE',
   })
   @JoinColumn({ name: 'id_inscripcion_pacam' })
-  id_inscripcion_pacam: InscripcionPacam;
+  inscripcion_pacam: InscripcionPacam;
+
+  @Column({ nullable: false })
+  id_inscripcion_pacam: number;
 }

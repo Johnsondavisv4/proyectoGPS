@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { FichaOdontologica } from './ficha-odontologica.entity';
 
 @Entity('odontograma')
@@ -21,11 +15,10 @@ export class Odontograma {
   @Column({ name: 'observacion', type: 'text', nullable: true })
   observacion: string | null;
 
-  @ManyToOne(() => FichaOdontologica, {
-    nullable: false,
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-  })
+  @ManyToOne(() => FichaOdontologica)
   @JoinColumn({ name: 'id_ficha_odontologica' })
-  id_ficha_odontologica: FichaOdontologica;
+  fichaOdontologica: FichaOdontologica;
+
+  @Column({ nullable: false })
+  id_ficha_odontologica: number;
 }

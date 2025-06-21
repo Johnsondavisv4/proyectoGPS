@@ -8,7 +8,8 @@ export class CitaService {
   constructor(
     @InjectRepository(Cita)
     private readonly citaRepo: Repository<Cita>,
-  ) { }
+  ) {
+  }
 
   async create(data: Partial<Cita>): Promise<Cita> {
     const cita = this.citaRepo.create(data);

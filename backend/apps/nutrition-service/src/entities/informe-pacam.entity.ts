@@ -33,5 +33,8 @@ export class InformePacam {
     onUpdate: 'CASCADE',
   })
   @JoinColumn({ name: 'id_programa_nutricional' })
-  id_programa_nutricional: ProgramaNutricional;
+  programa_nutricional: ProgramaNutricional;
+
+  @Column({ nullable: false })
+  id_programa_nutricional: number;
 }

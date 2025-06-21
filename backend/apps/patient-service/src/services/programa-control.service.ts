@@ -8,7 +8,8 @@ export class ProgramaControlService {
   constructor(
     @InjectRepository(ProgramaControl)
     private programaControlRepository: Repository<ProgramaControl>,
-  ) {}
+  ) {
+  }
 
   async create(programaControl: ProgramaControl): Promise<ProgramaControl> {
     return await this.programaControlRepository.save(programaControl);

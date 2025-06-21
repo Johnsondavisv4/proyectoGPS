@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { FichaOdontologica } from './ficha-odontologica.entity';
 
 @Entity('radiografia')
@@ -18,11 +12,10 @@ export class Radiografia {
   @Column({ name: 'fecha_toma', type: 'date', nullable: true })
   fecha_toma: Date | null;
 
-  @ManyToOne(() => FichaOdontologica, {
-    nullable: false,
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-  })
+  @ManyToOne(() => FichaOdontologica)
   @JoinColumn({ name: 'id_ficha_odontologica' })
-  id_ficha_odontologica: FichaOdontologica;
+  fichaOdontologica: FichaOdontologica;
+
+  @Column({ nullable: false })
+  id_ficha_odontologica: number;
 }

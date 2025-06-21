@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Paciente } from './paciente.entity';
 import { ProgramaControl } from './programa-control.entity';
 
@@ -21,11 +15,17 @@ export class FichaControl {
 
   @ManyToOne(() => Paciente)
   @JoinColumn({ name: 'id_paciente' })
-  id_paciente: Paciente;
+  paciente: Paciente;
+
+  @Column({ nullable: false })
+  id_paciente: number;
 
   @ManyToOne(() => ProgramaControl)
   @JoinColumn({ name: 'id_programa_control' })
-  id_programa_control: ProgramaControl;
+  programa_control: ProgramaControl;
+
+  @Column({ nullable: false })
+  id_programa_control: number;
 
   @Column()
   id_centro_salud: number;

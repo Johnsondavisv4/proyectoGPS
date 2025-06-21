@@ -1,10 +1,4 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Receta } from './receta.entity';
 import { Medicamento } from './medicamento.entity';
 
@@ -22,19 +16,17 @@ export class RecetaMedicamento {
   @Column({ name: 'duracion_dias', type: 'int', nullable: false })
   duracion_dias: number;
 
-  @ManyToOne(() => Receta, {
-    nullable: false,
-    onDelete: 'CASCADE',
-    onUpdate: 'CASCADE',
-  })
+  @ManyToOne(() => Receta)
   @JoinColumn({ name: 'id_receta' })
-  id_receta: Receta;
+  receta: Receta;
 
-  @ManyToOne(() => Medicamento, {
-    nullable: false,
-    onDelete: 'RESTRICT',
-    onUpdate: 'CASCADE',
-  })
+  @Column({ nullable: false })
+  id_receta: number;
+
+  @ManyToOne(() => Medicamento)
   @JoinColumn({ name: 'id_medicamento' })
-  id_medicamento: Medicamento;
+  medicamento: Medicamento;
+
+  @Column({ nullable: false })
+  id_medicamento: number;
 }

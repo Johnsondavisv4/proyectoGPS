@@ -8,7 +8,8 @@ export class PacienteService {
   constructor(
     @InjectRepository(Paciente)
     private pacienteRepository: Repository<Paciente>,
-  ) { }
+  ) {
+  }
 
   async create(paciente: Paciente): Promise<Paciente> {
     return await this.pacienteRepository.save(paciente);

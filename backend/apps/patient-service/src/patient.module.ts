@@ -101,4 +101,5 @@ import { EnumsService } from './services/enums.service';
     EnumsService,
   ],
 })
-export class PatientModule {}
+export class PatientModule {
+}

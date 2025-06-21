@@ -1,13 +1,4 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  ParseIntPipe,
-  Post,
-  Put,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import { FactorProtectorService } from '../services/factor-protector.service';
 import { FactorProtector } from '../entities/factor-protector.entity';
 
@@ -15,7 +6,8 @@ import { FactorProtector } from '../entities/factor-protector.entity';
 export class FactorProtectorController {
   constructor(
     private readonly factorProtectorService: FactorProtectorService,
-  ) {}
+  ) {
+  }
 
   @Post()
   create(@Body() factorProtector: FactorProtector) {
