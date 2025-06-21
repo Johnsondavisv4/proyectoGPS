@@ -8,8 +8,7 @@ export class RecetaMedicamentoService {
   constructor(
     @InjectRepository(RecetaMedicamento)
     private repo: Repository<RecetaMedicamento>,
-  ) {
-  }
+  ) {}
 
   create(data: Partial<RecetaMedicamento>): Promise<RecetaMedicamento> {
     const ent = this.repo.create(data);
@@ -41,5 +40,13 @@ export class RecetaMedicamentoService {
     const res = await this.repo.delete(id);
     if (res.affected === 0)
       throw new NotFoundException(`RecetaMedicamento ${id} no encontrado`);
+  }
+
+  async findByReceta(id: number) {
+    const receta = await this.repo.findOneBy({ id_receta: id });
+    if (!receta) {
+      throw new NotFoundException(`Receta con id ${id} no encontrada`);
+    }
+    return receta;
   }
 }

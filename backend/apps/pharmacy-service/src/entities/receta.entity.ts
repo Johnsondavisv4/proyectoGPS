@@ -14,9 +14,6 @@ export class Receta {
   @Column({ name: 'fecha_emision', type: 'date', nullable: false })
   fecha_emision: Date;
 
-  @Column({ name: 'validez_dias', type: 'int', nullable: false, default: 30 })
-  validez_dias: number;
-
   @Column({ name: 'indicacion', type: 'text', nullable: true })
   indicacion: string | null;
 }

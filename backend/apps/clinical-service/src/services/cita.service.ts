@@ -8,8 +8,7 @@ export class CitaService {
   constructor(
     @InjectRepository(Cita)
     private readonly citaRepo: Repository<Cita>,
-  ) {
-  }
+  ) {}
 
   async create(data: Partial<Cita>): Promise<Cita> {
     const cita = this.citaRepo.create(data);
@@ -21,7 +20,7 @@ export class CitaService {
   }
 
   async findOne(id: number): Promise<Cita> {
-    const cita = await this.citaRepo.findOneBy({ idCita: id });
+    const cita = await this.citaRepo.findOneBy({ id_cita: id });
     if (!cita) {
       throw new NotFoundException(`Cita con id ${id} no encontrada`);
     }

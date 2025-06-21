@@ -8,9 +8,6 @@ export class Medicamento {
   @Column({ name: 'nombre', type: 'varchar', length: 100, nullable: false })
   nombre: string;
 
-  @Column({ name: 'presentacion', type: 'varchar', length: 50, nullable: true })
-  presentacion: string | null;
-
   @Column({ name: 'descripcion', type: 'text', nullable: true })
   descripcion: string | null;
 }

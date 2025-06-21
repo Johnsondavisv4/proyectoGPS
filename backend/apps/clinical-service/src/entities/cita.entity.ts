@@ -9,34 +9,56 @@ export enum CitaEstado {
   EN_ESPERA = 'En espera',
 }
 
+export enum TipoCita {
+  CONSULTA_GENERAL = 'Consulta General',
+  CONTROL_NUTRICIONAL = 'Control Nutricional',
+  ODONTOLOGICA = 'Odontológica',
+  VACUNACION = 'Vacunación',
+  URGENCIA = 'Urgencia',
+  DESPACHO_MEDICAMENTO = 'Despacho Medicamento',
+  ESPECIALIDAD = 'Especialidad',
+  LABORATORIO = 'Laboratorio',
+  DIAGNOSTICO_IMAGEN = 'Diagnóstico Imagen',
+  TELEMEDICINA = 'Telemedicina',
+  FISIOTERAPIA = 'Fisioterapia',
+  VISITA_DOMICILIARIA = 'Visita Domiciliaria',
+  PREVENTIVA = 'Preventiva',
+  PLANIFICACION_FAMILIAR = 'Planificación Familiar',
+  SALUD_MENTAL = 'Salud Mental',
+  CUIDADOS_PALIATIVOS = 'Cuidados Paliativos',
+}
+
 @Entity({ name: 'cita' })
 export class Cita {
-  @PrimaryGeneratedColumn({ name: 'id_cita' })
-  idCita: number;
+  @PrimaryGeneratedColumn()
+  id_cita: number;
 
-  @Column({ type: 'date', name: 'fecha_hora' })
-  fechaHora: Date;
+  @Column({ type: 'timestamp' })
+  fecha_hora: Date;
 
-  @Column({ type: 'varchar', length: 20, name: 'tipo_cita' })
-  tipoCita: string;
+  @Column({
+    type: 'enum',
+    enum: TipoCita,
+    nullable: false,
+  })
+  tipo_cita: TipoCita;
 
   @Column({
     type: 'enum',
     enum: CitaEstado,
     default: CitaEstado.PENDIENTE,
-    name: 'estado',
   })
   estado: CitaEstado;
 
-  @Column({ type: 'text', name: 'observacion' })
+  @Column({ type: 'text' })
   observacion: string;
 
-  @Column({ type: 'int', name: 'id_paciente' })
-  idPaciente: number;
+  @Column({ type: 'int' })
+  id_paciente: number;
 
-  @Column({ type: 'int', name: 'id_usuario' })
-  idUsuario: number;
+  @Column({ type: 'int' })
+  id_usuario: number;
 
-  @Column({ type: 'int', name: 'id_centro_salud' })
-  idCentroSalud: number;
+  @Column({ type: 'int' })
+  id_centro_salud: number;
 }
