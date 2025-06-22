@@ -9,6 +9,14 @@ RUN npm ci
 
 COPY . .
 
+# Recibe los secrets como argumentos de build
+ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_SESSION_DURATION
+
+# Los expone como variables de entorno en el contenedor
+ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_SESSION_DURATION=$NEXT_PUBLIC_SESSION_DURATION
+
 # Construye la aplicación Next.js
 RUN npm run build
 
@@ -23,14 +31,6 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/next.config.ts ./next.config.ts
 COPY --from=builder /app/src ./src
-
-# Recibe los secrets como argumentos de build
-ARG NEXT_PUBLIC_API_URL
-ARG NEXT_PUBLIC_SESSION_DURATION
-
-# Los expone como variables de entorno en el contenedor
-ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
-ENV NEXT_PUBLIC_SESSION_DURATION=$NEXT_PUBLIC_SESSION_DURATION
 
 # Instala dependencias de producción
 RUN npm ci --omit=dev
