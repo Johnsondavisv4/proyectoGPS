@@ -1,8 +1,8 @@
 'use client';
 
-import React, {createContext, ReactNode, useContext, useEffect, useState} from 'react';
-import {useRouter} from 'next/navigation';
-import {apiService} from "@/services/ApiService";
+import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { apiService } from "@/services/ApiService";
 
 interface AuthContextType {
     user: UserInfo | null | undefined;
@@ -46,7 +46,7 @@ const parseSessionDuration = (duration: string): number => {
     }
 };
 
-export function AuthProvider({children}: { children: ReactNode }) {
+export function AuthProvider({ children }: { children: ReactNode }) {
     const [user, setUser] = useState<UserInfo | null | undefined>(undefined);
     const router = useRouter();
 
@@ -82,11 +82,11 @@ export function AuthProvider({children}: { children: ReactNode }) {
         checkSessionValidity();
         const interval = setInterval(checkSessionValidity, 60000);
         return () => clearInterval(interval);
-    });
+    }, []);
 
     const login = async (identifier: string, password: string, useEmail: boolean) => {
         try {
-            const payload: { username?: string; email?: string; password: string } = {password};
+            const payload: { username?: string; email?: string; password: string } = { password };
             if (useEmail) payload.email = identifier;
             else payload.username = identifier;
 
@@ -128,7 +128,7 @@ export function AuthProvider({children}: { children: ReactNode }) {
             const nuevoUsuario = await apiService.register(data);
             const idUsuario = nuevoUsuario.id_usuario;
 
-            const rolRes = await apiService.asignarRolUsuario({id_usuario: idUsuario});
+            const rolRes = await apiService.asignarRolUsuario({ id_usuario: idUsuario });
 
             if (!rolRes) {
                 alert('Usuario creado, pero error al asignar rol');
@@ -143,7 +143,7 @@ export function AuthProvider({children}: { children: ReactNode }) {
     };
 
     return (
-        <AuthContext.Provider value={{user, login, register, logout}}>
+        <AuthContext.Provider value={{ user, login, register, logout }}>
             {children}
         </AuthContext.Provider>
     );
