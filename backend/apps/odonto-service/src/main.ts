@@ -7,7 +7,7 @@ async function bootstrap() {
   const port = parseInt(process.env.PORT_ODONTO || '3000', 10);
 
   app.enableCors({
-    origin: 'http://localhost:3000',
+    origin: true,
   });
 
   await app.listen(port);
